@@ -16,10 +16,9 @@
         }
 
         #print {
+            display: block;
             width: 100%;
             height: 100%;
-            margin: 0;
-            padding: 0;
             background: white;
         }
 
@@ -46,29 +45,25 @@
         }
 
         .page {
-            position: relative;
-            break-before: page;
-            page-break-before: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
             width: 100%;
-            height: 100%;
-            /*padding: 1cm 3cm 1cm 1cm;*/
+            height: 100vh; /* или 100%, но vh надёжнее для печати */
+            box-sizing: border-box;
+            padding: 1cm 3cm 1cm 1cm;
+            page-break-after: always;
+            break-after: page;
         }
 
         .takes {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            transform-origin: right bottom;
-            transform: rotate(90deg) translateY(100%) translateY(2cm) translateX(-100px);
-            width: 10cm;
+            transform: rotate(90deg) translateY(100%); /* поворачиваем таблицу против часовой */
+            transform-origin: right bottom; /* точка поворота – правый нижний угол */
+            width: auto; /* ширина подстраивается под содержимое */
+            /* убрать все absolute-свойства и лишние translate */
         }
 
-        #print {
-            display: flex;
-            flex-direction: column;
-            gap: 1cm;
-            align-items: flex-start;
-        }
 
         body {
             margin: 0;
