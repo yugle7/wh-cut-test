@@ -684,6 +684,7 @@ input[type="text"] {
     margin: 0;
     padding: 0;
     background: white;
+    display: none;
 }
 
 .rect {
@@ -769,8 +770,9 @@ th {
     break-before: page;
     page-break-before: always;
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 190mm;
+    height: 277mm;
+    margin: 0 auto;
 }
 
 .cutting {
@@ -786,7 +788,7 @@ th {
     bottom: 0;
     right: 0;
     transform-origin: right bottom;
-    transform: rotate(90deg) translateY(100%) translateY(2cm) translateX(-100px);
+    transform: rotate(90deg) translateY(100%) translateY(2cm);
     width: 5cm;
 }
 

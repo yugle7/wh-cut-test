@@ -8,8 +8,119 @@
     <title>Раскрой</title>
     <link rel="canonical" href="https://yugle7.github.io/wh-cut-test/"/>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css"/>
+    <style>
+        #print * {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.2;
+            font-size: 4mm;
+        }
 
+        #print {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: white;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: lightgray;
+            text-align: center;
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+
+        th {
+            white-space: nowrap;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 1mm 2mm;
+            text-align: center;
+            width: fit-content;
+        }
+
+        tbody,
+        thead,
+        tr {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+        .page {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            min-height: 297mm;
+            box-sizing: border-box;
+            padding: 1cm 3cm 1cm 1cm;
+            page-break-after: always;
+            break-after: page;
+            overflow: hidden;
+            page-break-inside: avoid;
+        }
+
+        .takes {
+            transform: rotate(90deg) translateY(100%);
+            transform-origin: right bottom;
+            width: auto;
+            -webkit-transform: rotate(90deg) translateY(100%);
+            -webkit-transform-origin: right bottom;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #print, #print * {
+            color: black;
+            visibility: visible;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            width: 100%;
+            align-items: center;
+        }
+
+        .line {
+            width: 40px;
+            height: 4px;
+        }
+
+        .black {
+            stroke: black;
+        }
+
+        @media print {
+            @page {
+                margin: 0 !important;
+                size: A4;
+            }
+
+            @page {
+                @top-center {
+                    content: none;
+                }
+                @bottom-center {
+                    content: none;
+                }
+            }
+
+
+        }
+    </style>
 </head>
 
 <body>
@@ -26,12 +137,7 @@
         <div class="sign"><span>Толщина:</span><span>12 мм</span></div>
     </div>
 </div><div class="logo">
-    <svg id="logo" viewBox="0 0 24 24">
-        <rect x="14" y="14" width="8" height="8" rx="2" ry="2" fill="#4aaf8c"/>
-        <rect x="14" y="2" width="8" height="9" rx="2" ry="2" fill="#7a82da"/>
-        <rect x="2" y="2" width="9" height="7" rx="2" ry="2" fill="#c97b72"/>
-        <rect x="2" y="12" width="9" height="10" rx="2" ry="2" fill="#c9a84c"/>
-    </svg>
+    <svg><use href="sprite.svg#logo"></use></svg>
     <span>whCut</span>
 </div><table class="whole">
     <thead><tr>
@@ -63,7 +169,7 @@
         <th>Кромка</th>
     </tr></thead>
     <tbody><tr>
-    <td><svg class="line" viewBox="0 0 60 5">
+    <td><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></td>
     <td>0.2</td>
@@ -82,9 +188,9 @@
     </tr></thead>
     <tbody><tr>
     <td>1</td>
-    <td><div class="col"><span>1070</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>1070</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>334</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>334</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>1</td>
@@ -94,9 +200,9 @@
 </tr>
 <tr>
     <td>2</td>
-    <td><div class="col"><span>1054</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>1054</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>330</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>330</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>13</td>
@@ -106,9 +212,9 @@
 </tr>
 <tr>
     <td>3</td>
-    <td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>330</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>330</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>9</td>
@@ -118,9 +224,9 @@
 </tr>
 <tr>
     <td>4</td>
-    <td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>150</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>150</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>3</td>
@@ -130,9 +236,9 @@
 </tr>
 <tr>
     <td>5</td>
-    <td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>85</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>85</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>3</td>
@@ -142,9 +248,9 @@
 </tr>
 <tr>
     <td>6</td>
-    <td><div class="col"><span>567</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>567</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>320</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>320</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>10</td>
@@ -154,9 +260,9 @@
 </tr>
 <tr>
     <td>7</td>
-    <td><div class="col"><span>1850</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>1850</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>300</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>300</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>1</td>
@@ -166,9 +272,9 @@
 </tr>
 <tr>
     <td>8</td>
-    <td><div class="col"><span>1250</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>1250</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>300</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>300</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>1</td>
@@ -178,9 +284,9 @@
 </tr>
 <tr>
     <td>9</td>
-    <td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>80</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>80</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>6</td>
@@ -190,9 +296,9 @@
 </tr>
 <tr>
     <td>10</td>
-    <td><div class="col"><span>1022</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>1022</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>1</td>
@@ -202,9 +308,9 @@
 </tr>
 <tr>
     <td>11</td>
-    <td><div class="col"><span>567</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>567</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>490</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>490</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>2</td>
@@ -214,9 +320,9 @@
 </tr>
 <tr>
     <td>12</td>
-    <td><div class="col"><span>567</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>567</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>410</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>410</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>1</td>
@@ -226,9 +332,9 @@
 </tr>
 <tr>
     <td>13</td>
-    <td><div class="col"><span>704</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>704</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>80</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>80</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>1</td>
@@ -238,9 +344,9 @@
 </tr>
 <tr>
     <td>14</td>
-    <td><div class="col"><span>1720</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>1720</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>610</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>610</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>2</td>
@@ -250,9 +356,9 @@
 </tr>
 <tr>
     <td>15</td>
-    <td><div class="col"><span>1100</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>1100</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>594</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>594</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>2</td>
@@ -262,9 +368,9 @@
 </tr>
 <tr>
     <td>16</td>
-    <td><div class="col"><span>680</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>680</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>594</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>594</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>2</td>
@@ -274,9 +380,9 @@
 </tr>
 <tr>
     <td>17</td>
-    <td><div class="col"><span>1340</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>1340</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>560</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>560</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>1</td>
@@ -286,9 +392,9 @@
 </tr>
 <tr>
     <td>18</td>
-    <td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+    <td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>180</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>180</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td>
     <td>1</td>
@@ -362,24 +468,24 @@
 
 </div><table class="takes">
     <thead><tr><th>#</th><th>Длина</th><th>Ширина</th><th>Кол-во</th></tr></thead>
-    <tbody><tr><td>5</td><td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+    <tbody><tr><td>5</td><td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>85</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>85</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>1</td></tr>
-<tr><td>6</td><td><div class="col"><span>567</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>6</td><td><div class="col"><span>567</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>320</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>320</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>9</td></tr>
-<tr><td>9</td><td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>9</td><td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>80</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>80</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>2</td></tr>
-<tr><td>13</td><td><div class="col"><span>704</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>13</td><td><div class="col"><span>704</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>80</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>80</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>1</td></tr></tbody>
 </table></div>
@@ -488,24 +594,24 @@
 <div class="rect gray" style="left: 128.19214285714284mm;top: 148.89214285714286mm;width: 78.06857142857143mm;height: 3.400714285714286mm;"><div class="width" style="font-size: 2.833928571428572mm">1056</div></div><div class="back" style="left: 128.19214285714284mm;top: 148.89214285714286mm;width: 78.06857142857143mm;height: 3.400714285714286mm;;z-index: 1"></div>
 </div><table class="takes">
     <thead><tr><th>#</th><th>Длина</th><th>Ширина</th><th>Кол-во</th></tr></thead>
-    <tbody><tr><td>2</td><td><div class="col"><span>1054</span><svg class="line" viewBox="0 0 60 5">
+    <tbody><tr><td>2</td><td><div class="col"><span>1054</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>330</span><svg class="line" viewBox="0 0 60 5">
-        <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td>6</td></tr>
-<tr><td>3</td><td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
-        <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>330</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>330</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>6</td></tr>
-<tr><td>4</td><td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>3</td><td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>150</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>330</span><svg id="line" viewBox="0 0 60 5">
+        <line x1="2" y1="3" x2="58" y2="3"/>
+    </svg></div></td><td>6</td></tr>
+<tr><td>4</td><td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
+        <line x1="2" y1="3" x2="58" y2="3"/>
+    </svg></div></td><td><div class="col"><span>150</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>3</td></tr>
-<tr><td>14</td><td><div class="col"><span>1720</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>14</td><td><div class="col"><span>1720</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>610</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>610</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>2</td></tr></tbody>
 </table></div>
@@ -610,54 +716,54 @@
 <div class="rect gray" style="left: 0.7392857142857143mm;top: 151.25785714285715mm;width: 205.52142857142857mm;height: 1.035mm;"></div><div class="back" style="left: 0.7392857142857143mm;top: 151.25785714285715mm;width: 205.52142857142857mm;height: 1.035mm;;z-index: 1"></div>
 </div><table class="takes">
     <thead><tr><th>#</th><th>Длина</th><th>Ширина</th><th>Кол-во</th></tr></thead>
-    <tbody><tr><td>1</td><td><div class="col"><span>1070</span><svg class="line" viewBox="0 0 60 5">
+    <tbody><tr><td>1</td><td><div class="col"><span>1070</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>334</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>334</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>1</td></tr>
-<tr><td>2</td><td><div class="col"><span>1054</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>2</td><td><div class="col"><span>1054</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>330</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>330</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>3</td></tr>
-<tr><td>3</td><td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>3</td><td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>330</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>330</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>3</td></tr>
-<tr><td>6</td><td><div class="col"><span>567</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>6</td><td><div class="col"><span>567</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>320</span><svg class="line" viewBox="0 0 60 5">
-        <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td>1</td></tr>
-<tr><td>10</td><td><div class="col"><span>1022</span><svg class="line" viewBox="0 0 60 5">
-        <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>320</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>1</td></tr>
-<tr><td>11</td><td><div class="col"><span>567</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>10</td><td><div class="col"><span>1022</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>490</span><svg class="line" viewBox="0 0 60 5">
-        <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td>1</td></tr>
-<tr><td>12</td><td><div class="col"><span>567</span><svg class="line" viewBox="0 0 60 5">
-        <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>410</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>1</td></tr>
-<tr><td>15</td><td><div class="col"><span>1100</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>11</td><td><div class="col"><span>567</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>594</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>490</span><svg id="line" viewBox="0 0 60 5">
+        <line x1="2" y1="3" x2="58" y2="3"/>
+    </svg></div></td><td>1</td></tr>
+<tr><td>12</td><td><div class="col"><span>567</span><svg id="line" viewBox="0 0 60 5">
+        <line x1="2" y1="3" x2="58" y2="3"/>
+    </svg></div></td><td><div class="col"><span>410</span><svg id="line" viewBox="0 0 60 5">
+        <line x1="2" y1="3" x2="58" y2="3"/>
+    </svg></div></td><td>1</td></tr>
+<tr><td>15</td><td><div class="col"><span>1100</span><svg id="line" viewBox="0 0 60 5">
+        <line x1="2" y1="3" x2="58" y2="3"/>
+    </svg></div></td><td><div class="col"><span>594</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>2</td></tr>
-<tr><td>16</td><td><div class="col"><span>680</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>16</td><td><div class="col"><span>680</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>594</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>594</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>2</td></tr>
-<tr><td>18</td><td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>18</td><td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>180</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>180</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>1</td></tr></tbody>
 </table></div>
@@ -762,39 +868,39 @@
 <div class="rect gray" style="left: 43.02642857142857mm;top: 107.49214285714285mm;width: 163.2342857142857mm;height: 44.800714285714285mm;"><div class="width" style="font-size: 5mm">2208</div><div class="height" style="font-size: 5mm">606</div></div><div class="back" style="left: 43.02642857142857mm;top: 107.49214285714285mm;width: 163.2342857142857mm;height: 44.800714285714285mm;;z-index: 1"></div>
 </div><table class="takes">
     <thead><tr><th>#</th><th>Длина</th><th>Ширина</th><th>Кол-во</th></tr></thead>
-    <tbody><tr><td>2</td><td><div class="col"><span>1054</span><svg class="line" viewBox="0 0 60 5">
+    <tbody><tr><td>2</td><td><div class="col"><span>1054</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>330</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>330</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>4</td></tr>
-<tr><td>5</td><td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>5</td><td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>85</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>85</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>2</td></tr>
-<tr><td>7</td><td><div class="col"><span>1850</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>7</td><td><div class="col"><span>1850</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>300</span><svg class="line" viewBox="0 0 60 5">
-        <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td>1</td></tr>
-<tr><td>8</td><td><div class="col"><span>1250</span><svg class="line" viewBox="0 0 60 5">
-        <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>300</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>300</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>1</td></tr>
-<tr><td>9</td><td><div class="col"><span>568</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>8</td><td><div class="col"><span>1250</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>80</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>300</span><svg id="line" viewBox="0 0 60 5">
+        <line x1="2" y1="3" x2="58" y2="3"/>
+    </svg></div></td><td>1</td></tr>
+<tr><td>9</td><td><div class="col"><span>568</span><svg id="line" viewBox="0 0 60 5">
+        <line x1="2" y1="3" x2="58" y2="3"/>
+    </svg></div></td><td><div class="col"><span>80</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>4</td></tr>
-<tr><td>11</td><td><div class="col"><span>567</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>11</td><td><div class="col"><span>567</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>490</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>490</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>1</td></tr>
-<tr><td>17</td><td><div class="col"><span>1340</span><svg class="line" viewBox="0 0 60 5">
+<tr><td>17</td><td><div class="col"><span>1340</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
-    </svg></div></td><td><div class="col"><span>560</span><svg class="line" viewBox="0 0 60 5">
+    </svg></div></td><td><div class="col"><span>560</span><svg id="line" viewBox="0 0 60 5">
         <line x1="2" y1="3" x2="58" y2="3"/>
     </svg></div></td><td>1</td></tr></tbody>
 </table></div></div>
