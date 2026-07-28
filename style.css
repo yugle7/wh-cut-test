@@ -767,7 +767,7 @@ th {
 
 .page {
     break-before: page;
-    page-break-before: always;
+    /*page-break-before: always;*/
     position: relative;
     width: 190mm;
     height: 277mm;
