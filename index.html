@@ -10,6 +10,62 @@
     <link rel="canonical" href="https://yugle7.github.io/wh-cut-test/"/>
     <link rel="stylesheet" href="style.css"/>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        th {
+            background-color: lightgray;
+            text-align: center;
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+
+        .page {
+            break-before: page;
+            page-break-before: always;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .takes {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform-origin: right bottom;
+            transform: rotate(90deg) translateY(100%) translateY(2cm) translateX(-100px);
+            width: 5cm;
+        }
+
+        @media print {
+            @page {
+                margin: 0 !important;
+                padding: 1cm 0 1cm 1cm;
+                size: A4;
+            }
+
+            @page {
+                @top-center {
+                    content: none;
+                }
+                @bottom-center {
+                    content: none;
+                }
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            #print, #print * {
+                color: black;
+                visibility: visible;
+            }
+            .line {
+                width: 40px;
+                height: 4px;
+            }
+        }
+    </style>
 </head>
 
 <body>
