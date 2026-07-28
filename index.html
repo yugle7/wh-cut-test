@@ -44,24 +44,28 @@
             width: fit-content;
         }
 
+
         .page {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             align-items: flex-end;
             width: 100%;
-            height: 100vh; /* или 100%, но vh надёжнее для печати */
+            height: 100vh;
             box-sizing: border-box;
             padding: 1cm 3cm 1cm 1cm;
             page-break-after: always;
             break-after: page;
+            overflow: hidden;
+            page-break-inside: avoid;
         }
 
         .takes {
-            transform: rotate(90deg) translateY(100%); /* поворачиваем таблицу против часовой */
-            transform-origin: right bottom; /* точка поворота – правый нижний угол */
-            width: auto; /* ширина подстраивается под содержимое */
-            /* убрать все absolute-свойства и лишние translate */
+            transform: rotate(90deg) translateY(100%);
+            transform-origin: right bottom;
+            width: auto;
+            -webkit-transform: rotate(90deg) translateY(100%);
+            -webkit-transform-origin: right bottom;
         }
 
 
@@ -115,168 +119,6 @@
 <body>
 
 <div id="print">
-    <div class="page">
-        <table class="takes">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Длина</th>
-                <th>Ширина</th>
-                <th>Кол-во</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>2</td>
-                <td>
-                    <div class="col"><span>384</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>
-                    <div class="col"><span>320</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>
-                    <div class="col"><span>801</span></div>
-                </td>
-                <td>
-                    <div class="col"><span>320</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#line"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>
-                    <div class="col"><span>802</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>
-                    <div class="col"><span>80</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                        <svg class="line black">
-                            <use href="sprite.svg#line"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>
-                    <div class="col"><span>600</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#line"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>
-                    <div class="col"><span>80</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>
-                    <div class="col"><span>385</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>
-                    <div class="col"><span>330</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#line"></use>
-                        </svg>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>
-                    <div class="col"><span>1030</span></div>
-                </td>
-                <td>
-                    <div class="col"><span>330</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                        <svg class="line black">
-                            <use href="sprite.svg#line"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>8</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>
-                    <div class="col"><span>730</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>
-                    <div class="col"><span>330</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#line"></use>
-                        </svg>
-                        <svg class="line black">
-                            <use href="sprite.svg#line"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>
-                    <div class="col"><span>280</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>
-                    <div class="col"><span>330</span>
-                        <svg class="line black">
-                            <use href="sprite.svg#dash"></use>
-                        </svg>
-                    </div>
-                </td>
-                <td>2</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
     <div class="page">
         <table class="takes">
             <thead>
