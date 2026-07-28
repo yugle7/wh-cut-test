@@ -787,7 +787,7 @@ th {
     bottom: 0;
     right: 0;
     transform-origin: right bottom;
-    transform: rotate(90deg) translateY(100%) translateY(2cm) translateX(-10px);
+    transform: rotate(90deg) translateY(100%) translateY(2cm) translateX(-100px);
     max-width: 5cm;
     min-width: 5cm;
 }
